@@ -1,6 +1,7 @@
 import pygame
 import cv2
 from hand_detector import HandDetector
+from gestures import Gestures
 
 # Fingertip node ids
 # 4, 8, 12, 16, 20
@@ -23,6 +24,8 @@ class App:
         self.nodes = []
         self.init_nodes()
 
+        self.gestures= Gestures(nodes)
+
     def init_nodes(self):
         for i in range(21):
             node = pygame.Rect(self.width / 2, self.width / 2, 20, 20)
@@ -43,6 +46,8 @@ class App:
                 for index, coords in enumerate(coordonates):
                     self.nodes[index].x = abs(coords[0] - self.width)
                     self.nodes[index].y = coords[1]
+                
+                gestures.monitor_gestures()
             except:
                 print("Capture failed")
 
