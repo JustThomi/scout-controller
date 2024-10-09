@@ -24,7 +24,7 @@ class App:
         self.nodes = []
         self.init_nodes()
 
-        self.gestures= Gestures(nodes)
+        self.gestures = Gestures(self.nodes)
 
     def init_nodes(self):
         for i in range(21):
@@ -46,8 +46,8 @@ class App:
                 for index, coords in enumerate(coordonates):
                     self.nodes[index].x = abs(coords[0] - self.width)
                     self.nodes[index].y = coords[1]
-                
-                gestures.monitor_gestures()
+
+                self.gestures.monitor_gestures()
             except:
                 print("Capture failed")
 
