@@ -15,7 +15,7 @@ class Gestures:
             "pinky": self.nodes[20],
         }
 
-    def monitor_gestures(self, rects):
+    def monitor_gestures(self):
         if self.finger_tips["thumb"].colliderect(self.finger_tips["index"]):
             self.thumb_action()
         if self.finger_tips["thumb"].colliderect(self.finger_tips["middle"]):
