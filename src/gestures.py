@@ -18,11 +18,11 @@ class Gestures:
     def monitor_gestures(self):
         if self.finger_tips["thumb"].colliderect(self.finger_tips["index"]):
             self.thumb_action()
-        if self.finger_tips["thumb"].colliderect(self.finger_tips["middle"]):
+        elif self.finger_tips["thumb"].colliderect(self.finger_tips["middle"]):
             self.middle_action()
-        if self.finger_tips["thumb"].colliderect(self.finger_tips["ring"]):
+        elif self.finger_tips["thumb"].colliderect(self.finger_tips["ring"]):
             self.ring_action()
-        if self.finger_tips["thumb"].colliderect(self.finger_tips["pinky"]):
+        elif self.finger_tips["thumb"].colliderect(self.finger_tips["pinky"]):
             self.pinky_action()
 
     def thumb_action(self):

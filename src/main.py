@@ -3,9 +3,6 @@ import cv2
 from hand_detector import HandDetector
 from gestures import Gestures
 
-# Fingertip node ids
-# 4, 8, 12, 16, 20
-
 
 class App:
     def __init__(self):
@@ -21,6 +18,7 @@ class App:
         self.detector = HandDetector()
         self.cap = cv2.VideoCapture(0)
 
+        self.finger_tips = [4, 8, 12, 16, 20]
         self.nodes = []
         self.init_nodes()
 
@@ -28,7 +26,10 @@ class App:
 
     def init_nodes(self):
         for i in range(21):
-            node = pygame.Rect(self.width / 2, self.width / 2, 20, 20)
+            if i in self.finger_tips:
+                node = pygame.Rect(self.width / 2, self.width / 2, 40, 40)
+            else:
+                node = pygame.Rect(self.width / 2, self.width / 2, 20, 20)
             self.nodes.append(node)
 
     def update(self):
