@@ -5,7 +5,7 @@ import mediapipe
 class HandDetector():
     def __init__(self):
         self.hand_solutions = mediapipe.solutions.hands
-        self.hands = self.hand_solutions.Hands()
+        self.hands = self.hand_solutions.Hands(max_num_hands=2)
         self.draw = mediapipe.solutions.drawing_utils
 
     def get_landmarks(self, img):
